@@ -18,6 +18,8 @@ namespace Marian_Cristina_lab02.Models
         public int? AuthorID { get; set; }
         public Author? Author { get; set; }
         public Publisher? Publisher { get; set; }
+        public ICollection<BookCategory>? BookCategories { get; set; }
+
 
         [DataType(DataType.Date)]
     public DateTime PublishingDate { get; set; }

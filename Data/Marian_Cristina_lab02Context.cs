@@ -19,5 +19,7 @@ namespace Marian_Cristina_lab02.Data
         public DbSet<Marian_Cristina_lab02.Models.Publisher> Publisher { get; set; }
 
         public DbSet<Marian_Cristina_lab02.Models.Author> Author { get; set; }
+
+        public DbSet<Marian_Cristina_lab02.Models.Category> Category { get; set; }
     }
 }
