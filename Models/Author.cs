@@ -3,8 +3,8 @@
     public class Author
     {
             public int ID { get; set; }
-            public int FirstName { get; set; }
-            public int LastName { get; set; }
+            public String FirstName { get; set; }
+            public String LastName { get; set; }
             public ICollection<Book>? Books { get; set; }
     }
 }

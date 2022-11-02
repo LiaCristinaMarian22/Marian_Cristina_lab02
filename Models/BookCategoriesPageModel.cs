@@ -1,11 +1,13 @@
-﻿namespace Marian_Cristina_lab02.Models
+﻿using Marian_Cristina_lab02.Data;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace Marian_Cristina_lab02.Models
 {
-    public class BookCategoriesPageModel:PageModel
+    public class BookCategoriesPageModel : PageModel
     {
-        {
- public List<AssignedCategoryData> AssignedCategoryDataList;
-        public void PopulateAssignedCategoryData(Nume_Pren_Lab2Context context,
-        Book book)
+
+        public List<AssignedCategoryData> AssignedCategoryDataList;
+        public void PopulateAssignedCategoryData(Marian_Cristina_lab02Context context, Book book)
         {
             var allCategories = context.Category;
             var bookCategories = new HashSet<int>(
@@ -21,7 +23,7 @@
                 });
             }
         }
-        public void UpdateBookCategories(Nume_Pren_Lab2Context context,
+        public void UpdateBookCategories(Marian_Cristina_lab02Context context,
         string[] selectedCategories, Book bookToUpdate)
         {
             if (selectedCategories == null)
@@ -53,12 +55,13 @@
                         BookCategory courseToRemove
                         = bookToUpdate
                         .BookCategories
-                       }
+
             .SingleOrDefault(i => i.CategoryID == cat.ID);
-                    context.Remove(courseToRemove);
+                        context.Remove(courseToRemove);
+                    }
                 }
             }
         }
-    }
 
+    }
 }
