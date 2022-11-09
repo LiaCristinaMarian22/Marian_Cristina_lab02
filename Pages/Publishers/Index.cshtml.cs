@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Marian_Cristina_lab02.Data;
 using Marian_Cristina_lab02.Models;
+using Marian_Cristina_lab02.Models.ViewModels;
 
 namespace Marian_Cristina_lab02.Pages.Publishers
 {
@@ -21,7 +22,26 @@ namespace Marian_Cristina_lab02.Pages.Publishers
 
         public IList<Publisher> Publisher { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public PublisherIndexData PublisherData { get; set; }
+        public int PublisherID { get; set; }
+        public int BookID { get; set; }
+        public async Task OnGetAsync(int? id, int? bookID)
+        {
+            PublisherData = new PublisherIndexData();
+            PublisherData.Publishers = await _context.Publisher
+            .Include(i => i.Books)
+            .ThenInclude(c => c.Author)
+            .OrderBy(i => i.PublisherName)
+            .ToListAsync();
+            if (id != null)
+            {
+                PublisherID = id.Value;
+                Publisher publisher = PublisherData.Publishers
+                .Where(i => i.ID == id.Value).Single();
+                PublisherData.Books = publisher.Books;
+            }
+        }
+            public async Task OnGetAsync()
         {
             if (_context.Publisher != null)
             {
