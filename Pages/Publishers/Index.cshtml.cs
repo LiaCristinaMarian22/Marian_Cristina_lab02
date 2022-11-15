@@ -41,12 +41,6 @@ namespace Marian_Cristina_lab02.Pages.Publishers
                 PublisherData.Books = publisher.Books;
             }
         }
-            public async Task OnGetAsync()
-        {
-            if (_context.Publisher != null)
-            {
-                Publisher = await _context.Publisher.ToListAsync();
-            }
-        }
+          
     }
 }

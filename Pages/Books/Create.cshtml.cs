@@ -33,10 +33,7 @@ namespace Marian_Cristina_lab02.Pages.Books
             return Page();
         }
 
-        private void PopulateAssignedCategoryData(Marian_Cristina_lab02Context context, Book book)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         [BindProperty]
         public Book Book { get; set; }
@@ -71,18 +68,6 @@ namespace Marian_Cristina_lab02.Pages.Books
             return Page();
         }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
-        {
-          if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Book.Add(Book);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
-        }
+      
     }
 }
