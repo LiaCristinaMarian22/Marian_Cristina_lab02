@@ -12,7 +12,9 @@ namespace Marian_Cristina_lab02.Models
         public string Title { get; set; }
 
         [Column(TypeName = "decimal(6,2)")]
+        [Range(0.01, 500)]
         public decimal Price { get; set; }
+        [DataType(DataType.Date)]
         public int? PublisherID { get; set; }
 
         public int? AuthorID { get; set; }

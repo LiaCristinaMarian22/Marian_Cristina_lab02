@@ -8,9 +8,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Marian_Cristina_lab02.Data;
 using Marian_Cristina_lab02.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Marian_Cristina_lab02.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoriesPageModel
     {
         private readonly Marian_Cristina_lab02.Data.Marian_Cristina_lab02Context _context;
